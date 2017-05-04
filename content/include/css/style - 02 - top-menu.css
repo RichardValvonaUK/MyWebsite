@@ -1,0 +1,106 @@
+
+
+nav.top-menu   {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+nav.top-menu   ul {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	text-align: left;
+	position: relative;
+}
+
+nav.top-menu   ul.menu {
+	display: inline-block;
+}
+
+nav.top-menu   ul.menu > li {
+	display: inline-block;
+	padding: 0;
+}
+
+nav.top-menu   ul.menu li li {
+	display: block;
+	padding: 0;
+	border-top: 1px solid #55A2DC;
+}
+
+
+nav.top-menu   ul.menu li a {
+	display: block;
+	padding: 0px 20px;
+    color: #666;
+    font-size: 1.0em;
+    letter-spacing: 0;
+	border-bottom: none;
+	text-transform: uppercase;
+	font-weight: bold;
+	letter-spacing: 0.5px;
+	white-space: nowrap;
+}
+
+
+nav.top-menu   ul.menu > li > a {
+	display: inline-block;
+}
+
+
+nav.top-menu   ul.menu li a.with-sub-left { padding-right: 0; }
+nav.top-menu   ul.menu li a.with-sub-right { padding-left: 10px; }
+
+nav.top-menu   ul.menu li li a {
+}
+
+nav.top-menu   ul.menu li.selected > a {
+	background-color: #ff0000;
+	color: #fff;
+}
+
+nav.top-menu   ul.menu li:hover > a {
+	text-decoration: none;
+	color: #A2CCEC;
+	color: #fff;
+}
+
+nav.top-menu   ul.menu ul li a, nav.top-menu   ul.menu ul {
+	background: #3892D6;
+	color: #fff;
+}
+
+
+nav.top-menu   ul.menu li {
+	position: relative;
+	
+}
+
+nav.top-menu   ul.menu ul, nav.top-menu   ul.menu li ul {
+	position: absolute;
+	top: 100%;
+	visibility: hidden;
+	opacity: 0;
+	-webkit-transition: opacity 0.5s ease-out, visibility 0.5s;
+	-moz-transition: opacity 0.5s ease-out, visibility 0.5s;
+	-o-transition: opacity 0.5s ease-out, visibility 0.5s;
+	transition: opacity 0.5s ease-out, visibility 0.5s;
+}
+
+nav.top-menu   .menu li:hover ul {
+	display: block;
+	visibility: visible;
+    opacity: 1;
+	-webkit-transition: opacity 0.5s ease-in;
+	-moz-transition: opacity 0.5s ease-in;
+	-o-transition: opacity 0.5s ease-in;
+	transition: opacity 0.5s ease-in;
+}
+
+nav.top-menu   span.triple-bar {
+	display: none;
+}
+
+#page-menu {
+	padding: 0;
+}

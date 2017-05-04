@@ -1,0 +1,13 @@
+RewriteEngine On
+
+#RewriteCond %{HTTP_HOST} !^richardvalvona.uk$ [NC]
+#RewriteRule ^(.*)$ http://richardvalvona.uk/$1 [L,R=301]
+
+#RewriteCond %{REQUEST_FILENAME} !-f
+#RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)\?*$ index.php?controller=$1 [L,QSA]
+RewriteCond %{HTTP_REFERER} !^http://richardvalvona.uk/.*$      [NC]
+RewriteCond %{HTTP_REFERER} !^http://richardvalvona.uk$      [NC]
+RewriteCond %{HTTP_REFERER} !^http://www.richardvalvona.uk/.*$      [NC]
+RewriteCond %{HTTP_REFERER} !^http://www.richardvalvona.uk$      [NC]
+RewriteRule .*\.(jpg|jpeg|gif|png|bmp)$ - [F,NC]

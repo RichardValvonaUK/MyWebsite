@@ -1,0 +1,76 @@
+<?php
+
+namespace controllers\ajax;
+use \AjaxController;
+
+class DisplayCroppedImageAjaxController extends AjaxController {
+
+    const IMAGE_TYPE_UNKNOWN = 0;
+    const IMAGE_TYPE_GIF = 1;
+	const IMAGE_TYPE_JPEG = 2;
+    const IMAGE_TYPE_PNG = 3;
+    const IMAGE_TYPE_SWF = 4;
+    const IMAGE_TYPE_PSD = 5;
+    const IMAGE_TYPE_BMP = 6;
+    const IMAGE_TYPE_TIFF_II = 7;
+    const IMAGE_TYPE_TIFF_MM = 8;
+    const IMAGE_TYPE_JPC = 9;
+    const IMAGE_TYPE_JP2 = 10;
+    const IMAGE_TYPE_JPX = 11;
+    const IMAGE_TYPE_JB2 = 12;
+    const IMAGE_TYPE_SWC = 13;
+    const IMAGE_TYPE_IFF = 14;
+    const IMAGE_TYPE_WBMP = 15;
+    const IMAGE_TYPE_XBM = 16;
+    const IMAGE_TYPE_ICO = 17;
+    const IMAGE_TYPE_COUNT = 18;
+        
+    public function doInit() {
+    
+		if (!isset($_GET['file'])) {
+			return false;
+		}
+
+		$file = isset($_GET['file'])
+		$width_new = (isset($_GET['width']) ? $_GET['width'] : null);
+		$height_new = (isset($_GET['height']) ? $_GET['height'] : null);
+		
+		$file = URLS::getImageURL($file);
+		list($width, $height, $type, $attr) = getimagesize($file);
+
+		$image;
+
+		//Switches content-type and calls the imagecreatefrom... function
+		if ($type === IMAGE_TYPE_GIF) {
+		    header ('Content-Type: image/gif');
+		    $image = imagecreatefromgif($file);
+		}
+		elseif ($type === IMAGE_TYPE_JPEG) {
+		    header ('Content-Type: image/jpeg');
+		    $image = imagecreatefromjpeg($file);
+		}
+		elseif ($type === IMAGE_TYPE_PNG) {
+		    header ('Content-Type: image/png');
+		    $image = imagecreatefrompng($file);
+		}
+		else {
+		    header ('Content-Type: image/x-ms-bmp');
+		    $image = imagecreatefromwbmp($file);
+		}
+
+		return $image;
+
+/*
+		if (list($width_orig, $height_orig, $type, $attr) = @getimagesize($src)) {
+			
+			$height_new = ($width_new / $width_orig) * $height_orig;
+		}
+
+		$tn = imagecreatetruecolor($width_new, $height_new) ;
+		$image = imagecreatefromjpeg($src) ;
+		imagecopyresampled($tn, $image, 0, 0, 0, 0, $width_new, $height_new, $width_orig, $height_orig);
+
+		imagejpeg($tn, './media/'.$thname.'.'.$file_extension, 90);
+		*/
+    }
+}

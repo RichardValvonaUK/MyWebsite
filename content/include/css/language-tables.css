@@ -1,0 +1,58 @@
+table.language-table {
+    width: 100%;
+    padding: 5px 0 0 10px;
+    font-size: 1em;
+}
+
+table.language-table tr:first-child,
+table.language-table td:first-child {
+	font-weight: bold;
+}
+
+table.color-scheme1 {
+	background: #e33;
+}
+table.color-scheme1 td {
+	background: #ff8;
+}
+
+table.color-scheme2 {
+	background: #999;
+}
+table.color-scheme2 td {
+	background: #fff;
+}
+
+table.color-scheme3 {
+	background: #999;
+}
+table.color-scheme3 tr:first-child td,
+table.color-scheme3 tr td:first-child {
+	background: #fff;
+}
+table.color-scheme3 tr:not(:first-child) td:not(:first-child) {
+	background: #ff8;
+}
+
+#nounDetails {
+	
+}
+
+.nounLiteral { font-size: 1.4em; }
+.nounGenderM { color: #f00; }
+.nounGenderF { color: #00f; }
+.nounGenderN { color: #080; }
+
+#autoDeclensionTable td {
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+
+#autoDeclensionTable td:first-child {
+	width: 5em;
+}
+
+.matching-cases-for-rules {
+    font-weight: bold;
+}
